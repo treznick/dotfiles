@@ -1,7 +1,7 @@
 export EDITOR=vim
 export ZSH=$HOME/.oh-my-zsh
 export ZSH_CUSTOM=$HOME/.oh-my-zsh-custom
-export ZSH_THEME="continuity"
+export ZSH_THEME="dracula"
 plugins=(git git-flow rails ruby macos gem vi-mode rvm bundler)
 
 export LC_ALL=en_US.UTF-8
@@ -93,21 +93,11 @@ alias rake='noglob rake'
 #
 # Alternatively, copy/symlink this file and source in your shell.  See `hitch --setup-path`.
 
-hitch() {
-  if [[ -s "$HOME/.rvm" ]]; then
-    (rvm system; command hitch "$@")
-  fi
-  if [[ -s "$HOME/.hitch_export_authors" ]] ; then source "$HOME/.hitch_export_authors" ; fi
-}
-alias unhitch='hitch -u'
 alias vi='vim'
 alias openwork='vim -p $(git ls-files -m) $(git ls-files --others --exclude-standard)'
 
-if [[ -s "$HOME/.rvm" ]]; then
-  PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-  PATH=$PATH:$HOME/bin # Make personal scripts available
-  PATH=$PATH:$HOME/.bin # Make dotfiles scripts available
-fi
+PATH=$PATH:$HOME/bin # Make personal scripts available
+PATH=$PATH:$HOME/.bin # Make dotfiles scripts available
 
 # tell nokogiri to use sysem libraries instead of compiling packaged libs
 export NOKOGIRI_USE_SYSTEM_LIBRARIES=1
@@ -141,8 +131,4 @@ if [ ! -f "$HOME/.tmux/user.conf" ]; then
 fi
 source $ZSH/oh-my-zsh.sh
 
-# RVM is a silly thing. This fixes tmux not loading gemset
-# http://stackoverflow.com/a/6097090/3010499
-if [[ -s "$HOME/.rvm" ]]; then
-  cd .
-fi
+eval "$(rbenv init - zsh)"
