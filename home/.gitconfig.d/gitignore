@@ -18,3 +18,4 @@ tags
 ## RUBYMINE
 .idea/**/*
 .idea/
+.go-version
