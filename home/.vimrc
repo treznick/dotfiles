@@ -42,6 +42,7 @@ Plug 'https://github.com/tsaleh/vim-align'
 Plug 'https://github.com/vim-ruby/vim-ruby'
 Plug 'https://github.com/vim-scripts/DeleteTrailingWhitespace'
 Plug 'https://github.com/vim-scripts/ShowTrailingWhitespace'
+Plug 'zackhsi/sorbet-lsp'
 
 if filereadable(glob("~/.vim/local/vimplug"))
   source ~/.vim/local/vimplug
@@ -49,6 +50,8 @@ endif
 
 " Initialize plugin system
 call plug#end()
+
+au BufNewFile,BufRead *.sky setlocal filetype=python
 
 " Don't emulate vi bugs (must be first; has side effects)
 set nocompatible
@@ -151,7 +154,7 @@ set exrc
 set secure
 
 " bind nerdtree to \
-map \ :NERDTreeToggle<CR>
+map \ :NERDTreeToggle %<CR>
 
 map <Leader>p gg:s/\s*$<CR>/\d\+-<CR>ywggA [#<esc>pa]<esc>
 nmap <Leader>l iLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<esc>
@@ -223,7 +226,7 @@ let g:ale_ruby_ruby_executable = 'ruby'
 let g:ale_ruby_rubocop_executable = 'bundle'
 
 let g:ale_linters = {
-      \'ruby': ['rubocop', 'ruby'],
+      \'ruby': ['rubocop', 'ruby', 'sorbet-lsp'],
       \'eruby': ['erubi', 'ruumba'],
       \'javascript': ['eslint'],
       \'scss': ['stylelint'],
