@@ -18,7 +18,6 @@ Plug 'https://github.com/joukevandermaas/vim-ember-hbs'
 Plug 'https://github.com/kana/vim-textobj-user'
 Plug 'https://github.com/kchmck/vim-coffee-script'
 Plug 'https://github.com/keith/swift.vim'
-Plug 'https://github.com/mmai/wikilink'
 Plug 'https://github.com/nelstrom/vim-textobj-rubyblock'
 Plug 'https://github.com/othree/html5.vim'
 Plug 'https://github.com/pangloss/vim-javascript'
@@ -236,7 +235,7 @@ let g:ale_fixers = {
       \'*': ['remove_trailing_lines'],
       \'javascript': ['eslint'],
       \'scss': ['stylelint'],
-      \'ruby': ['rubocop'],
+      \'ruby': ['rubocop', 'rubyfmt'],
       \}
 let g:ale_fix_on_save_ignore = ['stylelint', 'eslint', 'rubocop']
 let g:ale_fix_on_save = 1
