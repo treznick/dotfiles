@@ -19,3 +19,6 @@ tags
 .idea/**/*
 .idea/
 .go-version
+
+.envrc
+.byebug_history

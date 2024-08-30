@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+require_relative "../.bin-services/remote_work/cli"
+
+RemoteWork::CLI.start(ARGV)

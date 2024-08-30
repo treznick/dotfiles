@@ -40,3 +40,5 @@ if [ ! -f "$HOME/.tmux/user.conf" ]; then
 fi
 source $ZSH/oh-my-zsh.sh
 source ~/.zsh/local.zsh
+
+export PAY_SKIP_REACHABILITY_CHECKS=true

@@ -1,0 +1,2 @@
+module RemoteWork
+end
