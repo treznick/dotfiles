@@ -81,7 +81,7 @@ module RemoteWork
     end
 
     def branch_name
-      Pathname.new(user).join(*[jira, title]).to_s
+      [user, jira, title].join(stack ? "-" : "/")
     end
 
     def devbox_name
