@@ -22,3 +22,5 @@ tags
 
 .envrc
 .byebug_history
+
+.ripgreprc

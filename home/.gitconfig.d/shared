@@ -1,4 +1,5 @@
 [alias]
+  /n
   st = status
   ci = commit
   br = branch

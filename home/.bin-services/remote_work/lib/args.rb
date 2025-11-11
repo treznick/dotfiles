@@ -5,15 +5,15 @@ require_relative "./title_string"
 module RemoteWork
   class Args
 
-    attr_reader :jira, :repo, :ide, :stack, :proxy
+    attr_reader :jira, :repo, :ide, :proxy, :run
 
-    def initialize(jira:, title: nil, repo:, ide:, stack: false, proxy: false)
+    def initialize(jira:, title: nil, repo:, ide:, proxy: false, run: false)
       @jira = jira
       @title = title
       @repo = repo
       @ide = ide
       @proxy = proxy
-      @stack = stack
+      @run = run
     end
 
     def title

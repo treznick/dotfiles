@@ -13,7 +13,6 @@ module RemoteWork
       @title = args.title
       @repo = args.repo
       @ide = args.ide
-      @stack = args.stack
       @proxy = args.proxy
     end
 
@@ -36,24 +35,16 @@ module RemoteWork
 
     private
 
-    attr_reader :jira, :title, :repo, :ide, :stack, :proxy
+    attr_reader :jira, :title, :repo, :ide, :proxy
 
     def pay_command
       "#{PAY_COMMAND_ARRAY.join(" ")} #{devbox_name}"
     end
 
     def dynamic_args
-      [repo_arg, ide_arg]
-        .tap { |a|
-          a << stack_arg if stack
-        }
-        .tap { |a|
-          a << service_arg if proxy
-        }
-    end
-
-    def stack_arg
-      "--create-as-stack"
+      [repo_arg, ide_arg].tap { |a|
+        a << service_arg if proxy
+      }
     end
 
     def ide_arg
@@ -81,7 +72,7 @@ module RemoteWork
     end
 
     def branch_name
-      [user, jira, title].join(stack ? "-" : "/")
+      [user, jira, title].join("/")
     end
 
     def devbox_name
